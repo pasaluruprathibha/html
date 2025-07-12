@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <style>
+        body{
+            background-color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin:0;
+            padding:20px;
+        }
+
+        header{
+            background-color: pink;
+            color:black;
+            padding:10px 0px;
+            text-align: center;
+        }
+
+        nav h1{
+            margin:0;
+            font-size:24px;
+        }
+
+        nav{
+            margin-bottom:20px;
+        }
+
+        footer{
+            background-color: gray;
+            position:bottom;
+            text-align: center;
+            
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Demo</title>
+ </head>
+ <body>
+    <header>
+        <nav>
+            <h1>
+                Donate Blood to Save Life Tmrw!!
+            </h1>
+        </nav>
+    </header>
+   <h2>Fill the details to check the eligibility..</h2>
+
+   <center><form action="" id="blood_form" >
+      <label for="">Age : </label><br>
+      <input type="number" name="" id="age" required><br><br><br>
+
+      <label for="">Blood Count :</label><br>
+      <input type="number" name="" id="bld_cnt" required><br><br><br>
+
+      <label for="">Hemoglobin : </label><br>
+      <input type="number" name="" id="hemo" required><br><br><br>
+
+      <label for="">Blood Sugar : </label><br>
+      <input type="number" name="" id="Bs" required><br><br><br>
+   
+      <input type="submit"  value="Check Eligibility" style="color:white; background-color: green;" id="check_eligibility">
+
+
+   </form></center>
+   <br><br>
+      <div class="results" id="results"></div>
+
+    <footer>
+        <p>&copy;2023 </p>
+        <p>Follow us on <a href="www.hospital.com">www.hospital.com</a></p>
+        <p></p>
+    </footer>
+
+ </body>
+ <script >
+   document.getElementById("blood_form").addEventListener("submit",function (event){
+      
+      event.preventDefault();
+
+      let age=parseInt(document.getElementById("age").value);
+      let bld_cnt=parseFloat(document.getElementById("bld_cnt").value);
+      let hemo=parseInt(document.getElementById("hemo").value);
+      let Bs=parseInt(document.getElementById("Bs").value);
+      let results=document.getElementById("results");
+
+      if(age>=18){
+         if(bld_cnt>=99999){
+            if(hemo>12){
+               if(80<=Bs<=120){
+
+                  results.innerHTML="You are Eligible to donate blood";
+               }
+               else{
+                  results.innerHTML="You are not Eligible to donate blood bcoz of ur Blood sugar";
+               }
+            }
+            else{
+                  results.innerHTML="You are not Eligible to donate blood bcoz of ur Hemoglobin";
+               }
+         }
+         else{
+                  results.innerHTML="You are not Eligible to donate blood bcoz of ur Blood Count";
+               }
+      }
+      else{
+                  results.innerHTML="You are not Eligible to donate blood bcoz of ur Age";
+               }
+
+   }
+);
+ </script>
+ </html>
